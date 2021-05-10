@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server, {
     cors: {
-        origin: 'https://jtkyber.github.io/battleship-online/',
+        origin: '*',
         methods: ["GET", "POST", "PUT"]
     }
 });
