@@ -1,19 +1,23 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
+
 const io = new Server(server, {
     cors: {
-        origin: 'https://jtkyber.github.io/battleship-online:*',
-        methods: ["GET", "POST", "PUT"]
+        origin:
+        'http://localhost:3000/',
+        // 'https://jtkyber.github.io/battleship-online/',
+        methods: ["GET", "POST"]
     }
 });
 
-app.use(cors());
+// app.use(cors());
 
 io.on('connection', (socket) => {
+    console.log(socket.request.url);
     socket.on('send shot to opponent', data => {
         socket.broadcast.to(data.socketid).emit('receive shot', data.target);
     })
