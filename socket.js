@@ -17,7 +17,6 @@ const io = new Server(server, {
 // app.use(cors());
 
 io.on('connection', (socket) => {
-    console.log(socket.request.url);
     socket.on('send shot to opponent', data => {
         socket.broadcast.to(data.socketid).emit('receive shot', data.target);
     })
