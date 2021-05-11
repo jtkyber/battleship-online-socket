@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: 'https://jtkyber.github.io/battleship-online/',
         methods: ["GET", "POST", "PUT"]
     }
 });
@@ -45,9 +45,13 @@ io.on('connection', (socket) => {
     socket.on('game over', socketid => {
         socket.broadcast.to(socketid).emit('receive game over');
     })
+
+    socket.on('send exit game', socketid => {
+        socket.broadcast.to(socketid).emit('receive exit game');
+    })
 });
 
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 3001, () => {
     console.log(`listening on port ${process.env.PORT}`);
 });
