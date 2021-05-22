@@ -8,8 +8,9 @@ const io = new Server(server, {
     cors: {
         origin:
         // 'http://localhost:3000',
-        'https://jtkyber.github.io',
-        methods: ["GET", "POST"]
+        // 'https://jtkyber.github.io',
+        '*',
+        methods: ["GET", "POST", "PUT"]
     }
 });
 
