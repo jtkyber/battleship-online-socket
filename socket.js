@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('send result to opponent board', data => {
-        socket.broadcast.to(data.socketid).emit('show result on opponent board', {result: data.shot, shotSquare: data.shotSquare, shipSunk: data.shipSunk});
+        socket.broadcast.to(data.socketid).emit('show result on opponent board', {result: data.shot, shotSquare: data.shotSquare, shipHit: data.shipHit});
     })
 
     socket.on('update user status', socketId => {
