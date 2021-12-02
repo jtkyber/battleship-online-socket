@@ -50,6 +50,10 @@ io.on('connection', (socket) => {
     socket.on('send exit game', socketid => {
         socket.broadcast.to(socketid).emit('receive exit game');
     })
+
+    socket.on('send msg', data => {
+        socket.broadcast.to(data.socketid).emit('receive msg', {message: data.message});
+    })
 });
 
 
