@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('send msg', data => {
-        socket.broadcast.to(data.socketid).emit('receive msg', {message: data.message});
+        socket.broadcast.to(data.socketid).emit('receive msg', data.message);
     })
 });
 
