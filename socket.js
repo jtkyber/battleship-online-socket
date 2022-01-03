@@ -31,8 +31,8 @@ io.on('connection', (socket) => {
         socket.broadcast.to(data.socketid).emit('receive invite', {username: data.username, socketid: data.currentSocket});
     })
 
-    socket.on('send go to game', socketid => {
-        socket.broadcast.to(socketid).emit('receive go to game');
+    socket.on('send go to game', data => {
+        socket.broadcast.to(data.receiverSocket).emit('receive go to game', {senderSocket: data.senderSocket, senderName: data.username});
     })
 
     socket.on('send friend request', socketid => {
