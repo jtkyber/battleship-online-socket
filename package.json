@@ -4,8 +4,7 @@
   "description": "",
   "main": "socket.js",
   "scripts": {
-    "start": "node socket.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node socket.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +13,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "socket.io": "^4.0.2"
-  }
+  },
+  "devDependencies": {}
 }
