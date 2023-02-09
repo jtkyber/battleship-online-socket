@@ -7,12 +7,7 @@ app.use(cors({
     origin: '*'
 }))
 
-const io = new Server(server, {
-    cors: {
-        origin: '*',
-        methods: ["GET", "POST", "PUT"]
-    }
-});
+const io = new Server(server);
 
 io.on('connection', (socket) => {
     socket.on('send shot to opponent', data => {
