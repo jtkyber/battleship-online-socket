@@ -3,11 +3,16 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
-app.use(cors({
-    origin: '*'
-}))
 
-const io = new Server(server);
+const io = new Server(server, {
+    cors: {
+        origin:
+        // 'http://localhost:3000',
+        'https://jtkyber.github.io',
+        // '*',
+        methods: ["GET", "POST", "PUT"]
+    }
+});
 
 io.on('connection', (socket) => {
     socket.on('send shot to opponent', data => {
