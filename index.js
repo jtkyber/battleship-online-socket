@@ -80,6 +80,6 @@ io.on('connection', (socket) => {
 });
 
 
-server.listen(process.env.PORT || 3001, () => {
-    console.log(`listening on port ${process.env.PORT || 3001}`);
+server.listen(process.env.PORT || 443, () => {
+    console.log(`listening on port ${process.env.PORT || 443}`);
 });
