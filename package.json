@@ -2,9 +2,10 @@
   "name": "battleship-socket",
   "version": "1.0.0",
   "description": "",
-  "main": "socket.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node socket.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,7 @@
     "express": "^4.18.2",
     "socket.io": "^4.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }

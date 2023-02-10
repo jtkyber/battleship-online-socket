@@ -31,8 +31,9 @@ const io = new Server(server, {
 //     return await fn(req, res)
 //   }
 
-app.use('/', ()=> {
+app.use('/', (req, res)=> {
     console.log('test123')
+    res.send('test123')
 })
   
 
