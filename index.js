@@ -14,6 +14,24 @@ const io = new Server(server, {
     }
 });
 
+// const allowCors = fn => async (req, res) => {
+//     res.setHeader('Access-Control-Allow-Credentials', true)
+//     res.setHeader('Access-Control-Allow-Origin', '*')
+//     // another common pattern
+//     // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+//     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+//     res.setHeader(
+//       'Access-Control-Allow-Headers',
+//       'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+//     )
+//     if (req.method === 'OPTIONS') {
+//       res.status(200).end()
+//       return
+//     }
+//     return await fn(req, res)
+//   }
+  
+
 io.on('connection', (socket) => {
     socket.on('send shot to opponent', data => {
         socket.broadcast.to(data.socketid).emit('receive shot', data.target);
@@ -58,5 +76,5 @@ io.on('connection', (socket) => {
 
 
 server.listen(process.env.PORT || 3001, () => {
-    console.log(`listening on port ${process.env.PORT}`);
+    console.log(`listening on port ${process.env.PORT || 3001}`);
 });
