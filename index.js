@@ -30,6 +30,10 @@ const io = new Server(server, {
 //     }
 //     return await fn(req, res)
 //   }
+
+app.use('/', ()=> {
+    console.log('test123')
+})
   
 
 io.on('connection', (socket) => {
