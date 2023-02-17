@@ -31,12 +31,6 @@ const io = new Server(server, {
 //     return await fn(req, res)
 //   }
 
-app.use('/', (req, res)=> {
-    console.log('test123')
-    res.send('test123')
-})
-  
-
 io.on('connection', (socket) => {
     socket.on('send shot to opponent', data => {
         socket.broadcast.to(data.socketid).emit('receive shot', data.target);
